@@ -47,4 +47,9 @@ public class LoginSteps extends PageSteps {
     public void ingresaConEmailYPasswordValidos(){
         LoginService.completarEmailYPass();
     }
+
+    @Then("se visualiza la pagina del Login")
+    public void seVisualizaLaPaginaDelLogin()  {
+        LoginService.visualizarLogin();
+    }
 }

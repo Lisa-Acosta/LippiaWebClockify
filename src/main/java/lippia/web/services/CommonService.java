@@ -16,7 +16,8 @@ public class CommonService extends ActionManager {
     }
 
     public static void login() throws InterruptedException {
-        navigateTo(PropertyManager.getProperty("web.base.url"));
+        navigateTo("https://app.clockify.me/en/login");
+        clickLink("Log in manually");
         completarEmailYPass(PropertyManager.getProperty("user"), PropertyManager.getProperty("pass"));
         clickButton("LOG IN");
         verifyPage();
@@ -25,14 +26,13 @@ public class CommonService extends ActionManager {
     public static void clickLink(String link) throws InterruptedException{
         Map<String,String> links = new HashMap<>();
         links.put("Log in", LINK_HEADER_LOGIN);
-        links.put("Log In Manually", LINK_MANUAL_LOGIN);
+        links.put("Log in manually", LINK_MANUAL_LOGIN);
+        links.put("Log out", LINK_LOGOUT);
 
         try{
-            waitVisibility(links.get(link));
             waitClickable(links.get(link)).click();
         }catch(Exception e){
             Thread.sleep(8000);
-            waitVisibility(links.get(link));
             waitClickable(links.get(link)).click();
         }
     }
@@ -53,5 +53,9 @@ public class CommonService extends ActionManager {
         }
 
 
+    }
+
+    public static void clickAvatar() {
+        click(LINK_AVATAR);
     }
 }

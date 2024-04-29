@@ -19,4 +19,8 @@ public class LoginConstants {
     public static final String BUTTON_WITH_GOOGLE = "xpath://*[contains(text(),'Continue with Google ')]";
     public static final String BUTTON_GOOGLE_REINTENTAR = "xpath://*[contains(text(),'Reintentar')]";
     public static final String BUTTON_GOOGLE_SIGUIENTE = "xpath://*[contains(text(),'Siguiente')]";
+
+    public static final String LINK_AVATAR = "xpath://avatar";
+    public static final String LINK_LOGOUT = "xpath://a[contains(.,'Log out')]";
+
 }

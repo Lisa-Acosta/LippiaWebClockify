@@ -2,6 +2,7 @@ package lippia.web.services;
 
 import com.crowdar.core.PropertyManager;
 import com.crowdar.core.actions.ActionManager;
+
 import lippia.web.constants.LoginConstants;
 import org.testng.Assert;
 
@@ -55,5 +56,8 @@ public class LoginService extends ActionManager {
         }
     }
 
-
+    public static void visualizarLogin() {
+        waitPresence(LINK_MANUAL_LOGIN);
+        Assert.assertTrue(isVisible(LINK_MANUAL_LOGIN));
+    }
 }
