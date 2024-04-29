@@ -1,7 +1,74 @@
-Feature: Login in clockify web
+@login @regression
+Feature:Login
+  Background: Login
+    Given el usuario esta en la pagina Clockify.me
+    And hace click en el link "Log in"
 
-  @Regression @Clockify @Login
-  Scenario: Login with valid credentials
-    Given The client is on clockify page
-    When The client login with credentials email lisa.acosta@gmail.com and password Li01sa02*
-    Then The client verify clockify home page is displayed
+  @smoke @loginExitoso
+  Scenario: Login Exitoso - Email registrado y password
+    When hace click en el link "Log In Manually"
+    And ingresa con email y password validos
+    And hace click en el boton "LOG IN"
+    Then se ingresa a la home page
+
+  @smoke @prueba
+  Scenario: Envio exitoso de email a una cuenta
+    When ingresa el email cualquiera@email.com
+    And hace click en el boton "CONTINUE WITH EMAIL"
+    Then se visualiza el mensaje Email sent
+
+  @notAutomation @Ignore
+  Scenario: Login exitoso con usuario de Google
+    When hace click en el boton "Continue with Google"
+    And ingresa con una cuenta de Google
+    Then se ingresa a la home page
+
+
+  @loginFallido
+  Scenario Outline: Login Fallido - credenciales invalidas
+    When hace click en el link "Log In Manually"
+    And ingresa el email <email>
+    And ingresa la password <password>
+    And hace click en el boton "LOG IN"
+    Then se visualiza el mensaje <mensajeDeError>
+
+    Examples:
+      | email                   | password   | mensajeDeError            |
+      | bellssystems@gmail      | bellpass01 | Email format is not valid |
+      | bells.systems.com       | 123456789  | Email format is not valid |
+      | bells.systems@gmail.com |            | Password is required      |
+      |                         | bellpass01 | Email is required         |
+      | bells.systems@gmail.com | &          | Password is not valid     |
+      | bellssystems@gmail.com  | &22222     | Invalid email or password |
+
+     # Scenario 3 y 4: Solo me aparece este error si pongo un caracter y lo borro o espacio
+
+  @loginFallido  @Ignore
+  Scenario: Login Fallido - bloqueo de cuenta exitoso
+    When hace click en el link "Log In Manually"
+    And intenta loguearse por 4 veces
+    Then se visualiza el mensaje Your account is temporarily locked. Check your email to proceed.
+
+  @loginFallido
+  Scenario Outline: Login fallido - email invalidos
+    When ingresa el email <email>
+    And hace click en el boton "CONTINUE WITH EMAIL"
+    Then se visualiza el mensaje <mensajeDeError>
+
+    Examples:
+      | email          | mensajeDeError            |
+      | cualquiera.com | Email format is not valid |
+      | email@gmail    | Email format is not valid |
+      |                | Email is required         |
+    # Scenario 3: Solo me aparece este error si pongo un caracter y lo borro o espacio
+
+  @notAutomation @Ignore
+  Scenario Outline: Login fallido con Google con credenciales invalidas
+    When hace click en el boton "Continue with Google"
+    And ingresa con email <email> y password <password>
+    Then se visualiza el mensaje "Contraseña incorrecta."
+
+    Examples:
+      | email                   | password   |
+      | bells.systems@gmail.com | cualquiera |
+      | lisa.acosta@gmail.com   | ninguna    |
