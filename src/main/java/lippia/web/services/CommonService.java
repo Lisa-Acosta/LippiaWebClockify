@@ -7,6 +7,7 @@ import java.util.Map;
 
 import static com.crowdar.core.actions.WebActionManager.navigateTo;
 import static lippia.web.constants.LoginConstants.*;
+import static lippia.web.constants.WorkspaceConstants.*;
 import static lippia.web.services.LoginService.*;
 
 public class CommonService extends ActionManager {
@@ -28,6 +29,7 @@ public class CommonService extends ActionManager {
         links.put("Log in", LINK_HEADER_LOGIN);
         links.put("Log in manually", LINK_MANUAL_LOGIN);
         links.put("Log out", LINK_LOGOUT);
+        links.put("Cancel", LINK_CANCEL_WORKSPACE);
 
         try{
             waitClickable(links.get(link)).click();
@@ -43,6 +45,8 @@ public class CommonService extends ActionManager {
             buttons.put("LOG IN", BUTTON_LOGIN );
             buttons.put("CONTINUE WITH EMAIL", BUTTON_WITH_EMAIL);
             buttons.put("Continue with Google",BUTTON_WITH_GOOGLE);
+            buttons.put("CREATE A NEW WORKSPACE", BUTTON_NEW_CREATE_WORKSPACE);
+            buttons.put("CREATE", BUTTON_CREATE_WORKSPACE);
 
         try{
             waitPresence(buttons.get(button)).click();

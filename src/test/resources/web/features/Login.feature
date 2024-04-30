@@ -6,12 +6,12 @@ Feature:Login
 
   @smoke @loginExitoso
   Scenario: Login Exitoso - Email registrado y password
-    When hace click en el link "Log In Manually"
+    When hace click en el link "Log in manually"
     And ingresa con email y password validos
     And hace click en el boton "LOG IN"
     Then se ingresa a la home page
 
-  @smoke @prueba
+  @smoke
   Scenario: Envio exitoso de email a una cuenta
     When ingresa el email cualquiera@email.com
     And hace click en el boton "CONTINUE WITH EMAIL"
@@ -26,7 +26,7 @@ Feature:Login
 
   @loginFallido
   Scenario Outline: Login Fallido - credenciales invalidas
-    When hace click en el link "Log In Manually"
+    When hace click en el link "Log in manually"
     And ingresa el email <email>
     And ingresa la password <password>
     And hace click en el boton "LOG IN"
@@ -45,7 +45,7 @@ Feature:Login
 
   @loginFallido  @Ignore
   Scenario: Login Fallido - bloqueo de cuenta exitoso
-    When hace click en el link "Log In Manually"
+    When hace click en el link "Log in manually"
     And intenta loguearse por 4 veces
     Then se visualiza el mensaje Your account is temporarily locked. Check your email to proceed.
 

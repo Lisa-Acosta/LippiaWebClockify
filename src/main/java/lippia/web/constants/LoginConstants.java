@@ -12,7 +12,7 @@ public class LoginConstants {
 
     public static final String SIDEBAR_NAVIGATION = "xpath://sidebar-navigation[contains(.,'TIME TRACKER')]";
 
-    public static final String TEXT_MENSAJE = "xpath://*[contains(text(),'%s')]";
+    public static final String TEXT_MENSAJE = "xpath://*[contains(text(),\"%s\")]";
 
     public static final String BUTTON_LOGIN = "xpath://button[contains(text(),'Log In')]";
     public static final String BUTTON_WITH_EMAIL = "xpath://button[contains(.,'Continue with email')]";
