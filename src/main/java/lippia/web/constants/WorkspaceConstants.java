@@ -20,7 +20,6 @@ public class WorkspaceConstants {
     public static final String TITTLE_WORKSPACES ="xpath://h1[.='Workspaces']";
     public static final String LINK_CANCEL_WORKSPACE ="xpath://a[.='Cancel']";
 
-    public static final String SIDEBAR_NAVIGATION = "xpath://sidebar-navigation[contains(.,'TIME TRACKER')]";
     public static final String TEXT_MENSAJE = "xpath://*[contains(text(),\"%s\")]";
 
 
