@@ -7,6 +7,7 @@ import java.util.Map;
 
 import static com.crowdar.core.actions.WebActionManager.navigateTo;
 import static lippia.web.constants.LoginConstants.*;
+import static lippia.web.constants.TimeTrackerConstants.*;
 import static lippia.web.constants.WorkspaceConstants.*;
 import static lippia.web.constants.ProyectoConstants.*;
 
@@ -51,6 +52,7 @@ public class CommonService extends ActionManager {
             buttons.put("CREATE", BUTTON_CREATE_WORKSPACE);
             buttons.put("CREATE NEW PROJECT", BUTTON_NEW_PROJECT);
             buttons.put("Create", BUTTON_CREATE_PROJECT);
+            buttons.put("ADD", BUTTON_ADD_WORK);
 
         try{
             waitPresence(buttons.get(button)).click();
