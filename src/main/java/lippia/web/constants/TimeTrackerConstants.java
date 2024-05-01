@@ -1,5 +1,7 @@
 package lippia.web.constants;
 
+import java.util.concurrent.Flow;
+
 public class TimeTrackerConstants {
 
     public static final String INPUT_WORKED ="xpath://input[@name='autocomplete-input']";
@@ -9,6 +11,7 @@ public class TimeTrackerConstants {
     public static final String LABEL_MSJ_OK ="xpath://*[@aria-label='Time entry has been created']";
     public static final String BUTTON_ADD_WORK ="xpath://button[contains(@class,'cl-d-none')]";
     public static final String GROUP_WORK ="xpath://entry-group[@class='ng-star-inserted']";
-    public static final String LABEL_WORK ="xpath://*[contains(text(),'%s')]";
+    public static final String LABEL_WORK ="xpath://div[contains(text(),'%s')]";
+    public static final String WORK_GROUP ="xpath://div[@class='cl-tracker-entries-wrapper ng-star-inserted']";
 
 }

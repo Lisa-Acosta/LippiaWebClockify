@@ -24,8 +24,9 @@ public class TimeTrackerService extends ActionManager {
         setInput(INPUT_DATE, fecha);
     }
 
-    public static void visualizarTrabajo(String trabajo) {
+    public static void visualizarTrabajo(String trabajo) throws InterruptedException {
             waitVisibility(LABEL_MSJ_OK);
+            Thread.sleep(4000);
             Assert.assertTrue(isPresent(LABEL_WORK, trabajo));
         }
     }

@@ -29,7 +29,7 @@ public class TimeTrackerSteps extends PageSteps {
     }
 
     @Then("se visualiza el trabajo \"(.*)\"$")
-    public void seVisualizaElTrabajo(String trabajo) {
+    public void seVisualizaElTrabajo(String trabajo) throws InterruptedException {
         TimeTrackerService.visualizarTrabajo(trabajo);
     }
 }
