@@ -4,20 +4,19 @@ Feature: Proyecto
     Given el usuario esta en la pagina de Proyectos
     And hace click en el boton "CREATE NEW PROJECT"
 
-  @smoke
+  @smoke @prueba
   Scenario Outline: Crear Projects exitoso
-    When ingresa el nombre del proyecto <nombre>
+    When ingresa el nombre para el proyecto <nombre>
     And selecciona el cliente <cliente>
     And elige la visibilidad <visibilidad>
     And elige un color <color>
     And hace click en el boton "Create"
-    Then se visualiza el proyecto con el nombre <nombre>
+    Then se muestra el mensaje de proyecto creado
 
     Examples:
-      | nombre           | cliente  | visibilidad | color                                      |
-      | Proyecto Crowdar | Personal | Public      | background: var(--default-picker-color-1); |
-      | Proyecto Academy |          | Private     | background: var(--default-picker-color-5); |
-      # Falta el si no elige Cliente y crear cliente
+      | nombre   | cliente  | visibilidad | color                                      |
+      | Proyecto | Personal | Public      | background: var(--default-picker-color-1); |
+      | Proyecto | Claro    | Private     | background: var(--default-picker-color-5); |
 
 
   Scenario Outline: Cancelar creacion de Proyecto exitoso

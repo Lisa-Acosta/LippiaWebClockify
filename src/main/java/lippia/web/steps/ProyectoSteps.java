@@ -13,7 +13,6 @@ public class ProyectoSteps extends PageSteps {
         ProyectoService.proyectosPage();
     }
 
-
     @When("^ingresa el nombre del proyecto (.*)$")
     public void ingresaElNombreDelProyecto(String nombre) {
         ProyectoService.ingresarNombre(nombre);
@@ -42,5 +41,15 @@ public class ProyectoSteps extends PageSteps {
     @Then("^no se visualiza el proyecto (.*)$")
     public void noSeVisualizaElProyecto(String proyecto) {
         ProyectoService.noVisualizarProyecto(proyecto);
+    }
+
+    @When("^ingresa el nombre para el proyecto (.*)$")
+    public void ingresaElNombreParaElProyecto(String nombre) {
+        ProyectoService.ingresarNombreRandom(nombre);
+    }
+
+    @Then("se muestra el mensaje de proyecto creado")
+    public void seMuestraElMensajeDeProyectoCreado() {
+        ProyectoService.mostrarProyectoCreado();
     }
 }
