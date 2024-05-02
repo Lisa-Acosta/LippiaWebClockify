@@ -18,8 +18,9 @@ public class WorkspaceService extends ActionManager {
         setInput(INPUT_NAME, nombre);
     }
 
-    public static void visualizarWorkspace(String nombre) {
+    public static void visualizarWorkspace(String nombre) throws InterruptedException {
         waitVisibility(NAME_WORKSPACE,nombre);
+        Thread.sleep(4000);
         Assert.assertTrue(isVisible(NAME_WORKSPACE, nombre));
         eliminarWorkspace(nombre);
     }
@@ -33,12 +34,13 @@ public class WorkspaceService extends ActionManager {
         waitVisibility(TEXT_MENSAJE,mensaje);
         Assert.assertTrue(isVisible(TEXT_MENSAJE, mensaje));
     }
-    public static void eliminarWorkspace(String workspace) {
+    public static void eliminarWorkspace(String workspace) throws InterruptedException {
         click(LINK_WORKSPACE);
         click(HOME_WORKSPACE, "HOME_WORKSPACE");
         waitPresence(BUTTON_DELETE_WORKSPACE, workspace).click();
         setInput(INPUT_DELETE, "DELETE");
         waitClickable(BUTTON_CONFIRM_DELETE).click();
+        Thread.sleep(4000);
         noVisualizarWorkspace(workspace);
     }
 }

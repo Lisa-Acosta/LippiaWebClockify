@@ -4,7 +4,7 @@ Feature: Proyecto
     Given el usuario esta en la pagina de Proyectos
     And hace click en el boton "CREATE NEW PROJECT"
 
-  @smoke @prueba
+  @smoke
   Scenario Outline: Crear Projects exitoso
     When ingresa el nombre para el proyecto <nombre>
     And selecciona el cliente <cliente>

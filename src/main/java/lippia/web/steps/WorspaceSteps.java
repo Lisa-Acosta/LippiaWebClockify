@@ -20,7 +20,7 @@ public class WorspaceSteps extends PageSteps {
     }
 
     @Then("^se visualiza el workspace \"(.*)\"$")
-    public void seVisualizaElWorkspace(String workspace) {
+    public void seVisualizaElWorkspace(String workspace) throws InterruptedException {
         WorkspaceService.visualizarWorkspace(workspace);
     }
 

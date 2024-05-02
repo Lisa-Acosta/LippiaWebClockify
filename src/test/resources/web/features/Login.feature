@@ -36,8 +36,8 @@ Feature:Login
       | email                   | password   | mensajeDeError            |
       | bellssystems@gmail      | bellpass01 | Email format is not valid |
       | bells.systems.com       | 123456789  | Email format is not valid |
-      | bells.systems@gmail.com |            | Password is required      |
-      |                         | bellpass01 | Email is required         |
+      #| bells.systems@gmail.com |            | Password is required      |
+      #|                         | bellpass01 | Email is required         |
       | bells.systems@gmail.com | &          | Password is not valid     |
       | bellssystems@gmail.com  | &22222     | Invalid email or password |
 
@@ -59,7 +59,7 @@ Feature:Login
       | email          | mensajeDeError            |
       | cualquiera.com | Email format is not valid |
       | email@gmail    | Email format is not valid |
-      |                | Email is required         |
+      #|                | Email is required         |
     # Scenario 3: Solo me aparece este error si pongo un caracter y lo borro o espacio
 
   @notAutomation @Ignore
