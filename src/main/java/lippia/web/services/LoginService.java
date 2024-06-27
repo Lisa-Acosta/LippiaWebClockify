@@ -1,20 +1,17 @@
 package lippia.web.services;
-
 import com.crowdar.core.PropertyManager;
 import com.crowdar.core.actions.ActionManager;
-
 import lippia.web.constants.LoginConstants;
 import org.testng.Assert;
-
 import static lippia.web.constants.LoginConstants.*;
 
 public class LoginService extends ActionManager {
-
 
     public static void completarEmailYPass() {
         setInput(INPUT_EMAIL, PropertyManager.getProperty("user"));
         setInput(INPUT_PASSWORD, PropertyManager.getProperty("pass"));
     }
+
     public static void completarEmailYPass(String email, String pass) {
         setInput(INPUT_EMAIL, email);
         setInput(INPUT_PASSWORD, pass);

@@ -42,7 +42,6 @@ public class LoginSteps extends PageSteps {
         LoginService.completarEmailYPass(email,pass);
     }
 
-
     @And("ingresa con email y password validos")
     public void ingresaConEmailYPasswordValidos(){
         LoginService.completarEmailYPass();

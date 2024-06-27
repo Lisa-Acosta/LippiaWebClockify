@@ -1,5 +1,4 @@
 package lippia.web.steps;
-
 import com.crowdar.core.PageSteps;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
@@ -28,8 +27,27 @@ public class TimeTrackerSteps extends PageSteps {
         TimeTrackerService.ingresarFecha(fecha);
     }
 
-    @Then("se visualiza el trabajo \"(.*)\"$")
+    @Then("^se visualiza el trabajo \"(.*)\"$")
     public void seVisualizaElTrabajo(String trabajo) throws InterruptedException {
         TimeTrackerService.visualizarTrabajo(trabajo);
+    }
+    @And("cancela el trabajo")
+    public void cancelaElTrabajo() {
+        TimeTrackerService.cancelarTrabajo();
+    }
+
+    @Then("^no se visualiza el trabajo \"(.*)\"$")
+    public void noSeVisualizaElTrabajo(String trabajo) {
+        TimeTrackerService.noVisualizarTrabajo(trabajo);
+    }
+
+    @When("modifico el trabajo {} y modifico la hora {} y {}")
+    public void modificoElTrabajoYModificoLaHoraY(String trabajo, String horaInicio, String horaFin) {
+        TimeTrackerService.ModificarTrabajo(trabajo, horaInicio, horaFin);
+    }
+
+    @Then("se actualiza el trabajo a {}")
+    public void seActualizaElTrabajoA(String trabajo) {
+        TimeTrackerService.visualizarModificacion(trabajo);
     }
 }
