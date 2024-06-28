@@ -25,6 +25,7 @@
 
 	<properties>
 		<maven.build.timestamp.format>yyyyMMdd_HHmm</maven.build.timestamp.format>
+		<buildIdentifier>Lippia_WEB_clockify_project_${maven.build.timestamp}</buildIdentifier>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
 		<!-- defult configuration chrome local -->
